@@ -11,5 +11,6 @@ module.exports = function routes() {
   this.match('api/v1/projects', "pages#create", {via:["POST"]});
   this.match('api/v1/projects', "pages#list", {via:["GET"]});
   this.match('api/v1/projects/:id', "pages#delete", {via:["DELETE"]});
-  this.match('api/v1/projects/:id', "pages#runTest", {via:["GET"]});
+  this.match('api/v1/projects/:id/runTest', "pages#runTest", {via:["GET"]});
+  this.match('api/v1/projects/:id', "pages#getProjectInfo", {via: ["GET"]});
 }

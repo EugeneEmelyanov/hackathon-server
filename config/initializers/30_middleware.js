@@ -14,6 +14,16 @@ module.exports = function() {
   this.use(express.static(__dirname + '/../../public'));
   this.use(express.bodyParser());
   this.use(express.methodOverride());
+  this.use(allowCrossDomain);
   this.use(this.router);
   this.use(express.errorHandler());
+}
+
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
 }
