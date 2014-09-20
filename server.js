@@ -12,7 +12,7 @@ app.phase(locomotive.boot.views());
 // is particularly useful if your application handles upgrades from HTTP to
 // other protocols such as WebSocket.
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '192.168.6.164'
 
 app.phase(require('bootable-environment')(__dirname + '/config/environments'));
 app.phase(bootable.initializers(__dirname + '/config/initializers'));
