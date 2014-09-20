@@ -65,7 +65,7 @@ PagesController.create = function() {
 PagesController.list = function() {
     var page = this.param('page');
     var self = this;
-    page = page || 0;
+    page = page || 1;
     console.log(page);
     ProjectModel.find({})
         .skip((page-1)*20)
