@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 var ProjectSchema = new Schema({
     url: { type: String, required: true },
     name: { type: String, required: true },
-    modificationDate: {type: Date}
+    modificationDate: {type: Date},
+    creationDate: {type:Date}
 });
 
 module.exports = mongoose.model('ProjectModel', ProjectSchema);

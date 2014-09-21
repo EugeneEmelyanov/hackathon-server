@@ -40,7 +40,7 @@ PagesController.create = function() {
         name = this.__req.body.name;
     var self = this;
 
-    ProjectModel.create({name:name, url:url, modificationDate: new Date()}, function(err, item) {
+    ProjectModel.create({name:name, url:url, modificationDate: new Date(), creationDate: new Date()}, function(err, item) {
         item = item.toObject();
         item.reportUrl = self.__req.protocol + '://' + self.__req.get('host') + "/" + item._id + "/";
         self.__res.send({success:true,
@@ -104,7 +104,7 @@ PagesController.__performTest = function(id, callback) {
                         var outputDir = './public/' + item._id;
                         var options;
                         plato.inspect(files, outputDir, {}, function(report) {
-                            item.modificationDate = new Date();
+                            contextItem.modificationDate = new Date();
                             contextItem.save(function(err) {
                                 if(err) {
                                     console.log('Cannot update item with id=' + item._id);
