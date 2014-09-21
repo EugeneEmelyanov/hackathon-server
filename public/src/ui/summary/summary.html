@@ -1,0 +1,16 @@
+<div class="summary">
+    <div class="chart-wrapper">
+        <h2>Total / Average Maintainability</h2>
+        <br />
+        <h3><b>{{data[data.length -1].summary.total.maintainability }} / {{ data[data.length -1].summary.average.maintainability}}</h3>
+        <br />
+        <chart data="chartData.maintainability"></chart>
+    </div>
+    <div class="chart-wrapper">
+        <h2>Total / Average Lines</h2>
+        <br />
+        <h3>{{data[data.length -1].summary.total.sloc }} / {{ data[data.length -1].summary.average.sloc}}</h3>
+        <br />
+        <chart data="chartData.sloc"></chart>
+    </div>
+</div>

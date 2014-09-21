@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html ng-app="ui.app">
+<head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <meta name="viewport" content="initial-scale=1">
+    <title>App</title>
 
+    <!-- libs -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-resource.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.js"></script>
+    <script src="//rawgit.com/krispo/angular-nvd3/master/dist/angular-nvd3.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.css">
+    <link rel="stylesheet" href="https://rawgit.com/novus/nvd3/master/nv.d3.css"/>
+
+    <!-- code -->
+    <script src="src/ui/app/app.js"></script>
+    <script src="src/api/projects.js"></script>
+    <script src="src/api/details.js"></script>
+    <script src="src/ui/loading-indicator/loading-indicator.js"></script>
+    <script src="src/ui/projects/projects.js"></script>
+    <script src="src/ui/details/details.js"></script>
+    <script src="src/ui/summary/summary.js"></script>
+    <script src="src/ui/chart/chart.js"></script>
+    <script src="src/ui/create/create.js"></script>
+    <script src="src/ui/header/header.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="src/ui/app/app.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/projects/projects.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/details/details.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/summary/summary.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/chart/chart.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/create/create.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/header/header.css">
+    <link rel="stylesheet" type="text/css" href="src/ui/loading-indicator/loading-indicator.css">
+</head>
+<body class="container">
+    <div ng-view></div>
 </body>
 </html>

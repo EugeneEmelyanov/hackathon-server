@@ -1,0 +1,65 @@
+<div class="projects">
+    <div ng-show="projects.length !== 0" class="pull-right">
+        <create></create>
+    </div>
+    <div>
+        <h3>Current projects<h3>
+    </div>
+    <loading-indicator ng-if="!projects.$resolved"></loading-indicator>
+    <div ng-show="!hasError && projects.$resolved && projects.length === 0">
+        <div class="no-data">
+            <h4>There are no projects yet.
+                <br />
+                Press
+                <create></create>
+                to create your first project.
+            </h4>
+        </div>
+    </div>
+    <div ng-show="hasError">
+        <div class="no-data">
+            <h4>Error occurred while retrieving data. Please try again.</h4>
+        </div>
+    </div>
+    <ul>
+        <li ng-repeat="project in projects">
+            <div>
+                <div class="pull-right">
+                    <button
+                        ng-click="runTest(project, $index)"
+                        class="btn run-btn"
+                        ng-class="{
+                            'btn-link': !project.$runStatus,
+                            'btn-danger': project.$runStatus === 'error',
+                            'btn-success': project.$runStatus === 'success'
+                        }">
+                        <loading-indicator ng-if="project.$running"></loading-indicator>
+                        <span ng-if="!project.$running">Run</span>
+                    </button>
+                    <button ng-click="removeProject(project, $index)" class="btn btn-link">
+                        Remove
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <h4 class="title"><a href="{{ project.reportUrl || project._id }}">{{ project.name }}</a><h4>
+            </div>
+            <div>
+                <span class="col-sm-1 text-right">
+                    <b>Url:</b>
+                </span>
+                <span>
+                    <b>{{ project.url }}</b>
+                </span>
+            </div>
+            <div>
+                <span class="col-sm-1 text-right">
+                    <b>Status:</b>
+                </span>
+                <span>
+                    <b>Ok</b>
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>

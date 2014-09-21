@@ -1,0 +1,25 @@
+.projects {
+
+}
+
+.projects ul li {
+    background-color: #fefefe;
+    /*border: 1px solid #c7c7c9;*/
+    border-top: 1px solid #c7c7c9;
+    /*box-shadow: 0 0 6px #cdcdcd;*/
+    padding: 10px;
+    /*margin: 5px 0px;*/
+}
+
+.projects .no-data {
+    text-align: center;
+    padding: 10px;
+}
+
+.projects .run-btn {
+    width: 90px;
+}
+
+.projects ul li .title {
+    padding: 0 0 0 5px;
+}
