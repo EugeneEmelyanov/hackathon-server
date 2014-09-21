@@ -13,7 +13,7 @@
     "locomotive-mongoose": "*",
     "mongoose": "*",
     "download": "*",
-    "plato": "*",
+    "plato": "https://github.com/EugeneEmelyanov/plato/tarball/master",
     "glob": "*",
     "mkdirp": "*"
   },
