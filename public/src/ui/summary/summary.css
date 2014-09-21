@@ -1,0 +1,19 @@
+.summary {
+    text-align: center;
+}
+
+.summary .chart-wrapper {
+    max-width: 500px;
+    width: 100%;
+    display: inline-block;
+    margin: 20px;
+}
+
+.summary h2 {
+    font-size: 1.5em;
+}
+
+.summary h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+}
