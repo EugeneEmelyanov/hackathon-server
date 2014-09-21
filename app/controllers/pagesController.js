@@ -40,7 +40,7 @@ PagesController.create = function() {
         name = this.__req.body.name;
     var self = this;
 
-    ProjectModel.create({name:name, url:url}, function(err, item) {
+    ProjectModel.create({name:name, url:url, modificationDate: new Date()}, function(err, item) {
         item = item.toObject();
         item.reportUrl = self.__req.protocol + '://' + self.__req.get('host') + "/" + item._id + "/";
         self.__res.send({success:true,
@@ -81,6 +81,7 @@ PagesController.delete = function() {
 PagesController.__performTest = function(id, callback) {
     var self = this;
     ProjectModel.findOne({_id:id}).exec(function(err, item) {
+        var contextItem = item;
         item = item.toObject();
         var url = item.url;
         mkdirp("/../public/" + item._id + "/sources", function(err) {
@@ -102,7 +103,15 @@ PagesController.__performTest = function(id, callback) {
                     } else {
                         var outputDir = './public/' + item._id;
                         var options;
-                        plato.inspect(files, outputDir, {}, callback);
+                        plato.inspect(files, outputDir, {}, function(report) {
+                            item.modificationDate = new Date();
+                            contextItem.save(function(err) {
+                                if(err) {
+                                    console.log('Cannot update item with id=' + item._id);
+                                }
+                            });
+                            callback.apply(self);
+                        });
                     }
                 });
             });
