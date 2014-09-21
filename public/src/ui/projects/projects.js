@@ -1,7 +1,7 @@
 angular.module('ui.projects', ['api.projects', 'ui.loading-indicator', 'ui.create', 'ui.header'])
 
 .controller('ProjectsController', function($scope, ProjectsFactory) {
-    $scope.projects = ProjectsFactory.query({page: 2})
+    $scope.projects = ProjectsFactory.query({})
     $scope.projects.$promise.catch(function() {
             $scope.hasError = true;
         });
