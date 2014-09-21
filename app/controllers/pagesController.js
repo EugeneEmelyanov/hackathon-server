@@ -17,6 +17,7 @@ PagesController.runTest = function() {
     var id = this.param("id");
     self.__performTest(id, function(report) {
         ProjectModel.findOne({_id:id}).exec(function(err, item) {
+            item = item.toObject();
             item.reportUrl = self.__req.protocol + '://' + self.__req.get('host') + "/" + item._id + "/";
             self.__res.send(item);
         });
@@ -40,6 +41,8 @@ PagesController.create = function() {
     var self = this;
 
     ProjectModel.create({name:name, url:url}, function(err, item) {
+        item = item.toObject();
+        item.reportUrl = self.__req.protocol + '://' + self.__req.get('host') + "/" + item._id + "/";
         self.__res.send({success:true,
                          item: item});
         self.__performTest(item._id, function(report){
